@@ -1,0 +1,16 @@
+/**:
+  ros__parameters:
+    input_topic:  "/vicon/voxl2/voxl2"
+    # output_topic: "/fmu/in/vehicle_mocap_odometry"
+    output_topic: "/fmu/in/vehicle_visual_odometry"
+    # output_topic: "/TEST_TOPIC"
+
+    publish_velocity:       false
+    use_receive_timestamp:  true     # set false ONLY if Vicon PC clock is PTP/chrony-synced to the drone
+    velocity_filter_alpha:  0.5      # 1.0 = no filtering, smaller = smoother
+
+    # Variances (diagonal). Vicon is ~mm-accurate but be honest about sync jitter.
+    position_variance:    [1.0e-5, 1.0e-5, 1.0e-5]   # m^2     (~0.1 cm 1-sigma)
+    orientation_variance: [3.0e-5, 3.0e-5, 3.0e-5]   # rad^2   (~0.1 deg 1-sigma)
+
+    velocity_variance:    [1.0e-3, 1.0e-3, 1.0e-3]   # (m/s)^2 (~1 cm/s 1-sigma)
